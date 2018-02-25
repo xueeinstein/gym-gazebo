@@ -147,10 +147,10 @@ class GazeboCircuit2cTurtlebotCameraNnEnv(gazebo_env.GazeboEnv):
         # Add center of the track reward
         # len(data.ranges) = 100
         laser_len = len(data.ranges)
-        left_sum = sum(data.ranges[laser_len-(laser_len/5):laser_len-(laser_len/10)]) #80-90
-        right_sum = sum(data.ranges[(laser_len/10):(laser_len/5)]) #10-20
+        left_sum = sum(data.ranges[laser_len-(laser_len//5):laser_len-(laser_len//10)]) #80-90
+        right_sum = sum(data.ranges[(laser_len//10):(laser_len//5)]) #10-20
 
-        center_detour = abs(right_sum - left_sum)/5
+        center_detour = abs(right_sum - left_sum)//5
 
         # 3 actions
         if not done:
